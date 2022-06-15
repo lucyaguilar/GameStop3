@@ -14,7 +14,7 @@ namespace GameStop.Web.Controllers
         {
             var productosBL = new ProductosBL();
             var listadeProductos = productosBL.ObtenerProductos();
-            return View(listadeProductos)
+            return View(listadeProductos);
         }
     }
 }

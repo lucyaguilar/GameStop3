@@ -16,17 +16,11 @@ namespace GameStop.Win
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
             var productosBL = new ProductosBL();
             var listadeProductos = productosBL.ObtenerProductos();
 
-            foreach (var productos in listadeProductos)
-            {
-                MessageBox.Show(productos.Descripcion);
-            }
+            listadeProductosBindingSource.DataSource = listadeProductos;
         }
     }
 }
+       
