@@ -5,6 +5,12 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameStop.Web", "GameStop.Web\GameStop.Web.csproj", "{8F3FB8DC-B0E9-473F-B6D3-96998EB1C5FD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameStop.WebAdmi", "GameStop.WebAdmi\GameStop.WebAdmi.csproj", "{0819D071-7B27-417C-81F2-A24340A6783D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameStop.Win", "GameStop.Win\GameStop.Win.csproj", "{94AB10D5-4103-4D01-B65C-141219C21EB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameStop.BL", "GameStop.BL\GameStop.BL.csproj", "{991940BA-6020-4929-8A8B-478FCB2BE89E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +21,18 @@ Global
 		{8F3FB8DC-B0E9-473F-B6D3-96998EB1C5FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F3FB8DC-B0E9-473F-B6D3-96998EB1C5FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F3FB8DC-B0E9-473F-B6D3-96998EB1C5FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0819D071-7B27-417C-81F2-A24340A6783D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0819D071-7B27-417C-81F2-A24340A6783D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0819D071-7B27-417C-81F2-A24340A6783D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0819D071-7B27-417C-81F2-A24340A6783D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94AB10D5-4103-4D01-B65C-141219C21EB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94AB10D5-4103-4D01-B65C-141219C21EB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94AB10D5-4103-4D01-B65C-141219C21EB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94AB10D5-4103-4D01-B65C-141219C21EB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{991940BA-6020-4929-8A8B-478FCB2BE89E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{991940BA-6020-4929-8A8B-478FCB2BE89E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{991940BA-6020-4929-8A8B-478FCB2BE89E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{991940BA-6020-4929-8A8B-478FCB2BE89E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
