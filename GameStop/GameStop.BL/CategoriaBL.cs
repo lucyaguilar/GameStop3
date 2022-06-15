@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace GameStop.BL
 {
-    public class ProductosBL
+    public class CategoriaBL
     {
         Contexto _contexto;
         public List<Producto> ListadeProductos { get; set; }
 
-        public ProductosBL()
+        public CategoriaBL()
         {
             _contexto = new Contexto();
             ListadeProductos = new List<Producto>();
@@ -24,7 +24,7 @@ namespace GameStop.BL
 
         public void GuardarProducto(Producto producto)
         {
-            if (producto.Id==0)
+            if (producto.Id == 0)
             {
                 _contexto.Productos.Add(producto);
             }
@@ -34,7 +34,7 @@ namespace GameStop.BL
                 productoExistente.Descripcion = producto.Descripcion;
                 productoExistente.Precio = producto.Precio;
             }
-            
+
             _contexto.SaveChanges();
         }
 
@@ -43,7 +43,7 @@ namespace GameStop.BL
             var producto = _contexto.Productos.Find(id);
 
             return producto;
-            
+
         }
 
         public void EliminarProducto(int id)
@@ -53,4 +53,5 @@ namespace GameStop.BL
             _contexto.SaveChanges();
         }
     }
+    
 }
