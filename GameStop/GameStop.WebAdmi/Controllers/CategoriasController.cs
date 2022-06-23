@@ -25,15 +25,24 @@ namespace GameStop.WebAdmi.Controllers
         public ActionResult Crear()
         {
             var nuevoProducto = new Producto();
-
+         
             return View(nuevoProducto);
         }
 
         [HttpPost]
-        public ActionResult Crear(Producto producto)
+        public ActionResult Crear(Producto categoria)
         {
-            _categoriaBL.GuardarProducto(producto);
-            return RedirectToAction("Index");
+            if(ModelState.IsValid)
+            {
+                if (categoria.Descripcion != categoria.Descripcion.Trim())
+                {
+                    ModelState.AddModelError("Descripcion","La descripción no debe contener espacios al inicio o al final");
+                    return View(categoria);
+                }
+                _categoriaBL.GuardarProducto(categoria);
+                return RedirectToAction("Index");
+            }
+            return View(categoria);
         }
 
         public ActionResult Editar(int id)

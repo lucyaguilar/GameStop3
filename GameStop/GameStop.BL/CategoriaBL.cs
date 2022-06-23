@@ -52,6 +52,11 @@ namespace GameStop.BL
             _contexto.Productos.Remove(producto);
             _contexto.SaveChanges();
         }
+        public List<Producto> ObtenerCategorias()
+        {
+            ListadeProductos = _contexto.Productos.ToList();
+            return ListadeProductos;
+        }
     }
     
 }

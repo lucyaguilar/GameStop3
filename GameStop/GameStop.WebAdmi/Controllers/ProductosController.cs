@@ -10,10 +10,12 @@ namespace GameStop.WebAdmi.Controllers
     public class ProductosController : Controller
     {
         ProductosBL _productosBL;
+        CategoriaBL _categoriasBL;
 
         public ProductosController()
         {
             _productosBL = new ProductosBL();
+            _categoriasBL = new CategoriaBL();
         }
 
         // GET: Productos
@@ -26,21 +28,49 @@ namespace GameStop.WebAdmi.Controllers
         public ActionResult Crear()
         {
             var nuevoProducto = new Producto();
+            var categorias = _categoriasBL.ObtenerCategorias();
 
+            ViewBag.ListaCategorias = new SelectList(categorias, "Id", "Descripcion");
             return View(nuevoProducto);
         }
 
         [HttpPost]
-        public ActionResult Crear(Producto producto)
+        public ActionResult Crear(Producto producto, HttpPostedFileBase imagen)
         {
-            _productosBL.GuardarProducto(producto);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                if (producto.CategoriaId == 0)
+                {
+                    ModelState.AddModelError("CategoriaId", "Selecciones una categoria");
+                    return View(producto);
+                }
+
+
+                _productosBL.GuardarProducto(producto);
+                return RedirectToAction("Index");
+            }
+            if (imagen !=null)
+            {
+                producto.UrlImagen = GuardarImagen(imagen);
+            }
+            var categorias = _categoriasBL.ObtenerCategorias();
+
+            ViewBag.ListaCategorias = new SelectList(categorias, "Id", "Descripcion");
+            
+            return View(producto);
+        }
+
+        private string GuardarImagen(HttpPostedFileBase imagen)
+        {
+            throw new NotImplementedException();
         }
 
         public ActionResult Editar(int id)
         {
             var producto = _productosBL.ObtenerProducto(id);
+            var categorias = _categoriasBL.ObtenerCategorias();
 
+            ViewBag.CategoriaId = new SelectList(categorias, "Id", "Descricion", producto.CategoriaId);
             return View(producto);
         }
 
@@ -59,6 +89,8 @@ namespace GameStop.WebAdmi.Controllers
         public ActionResult Eliminar(int id)
         {
             var producto = _productosBL.ObtenerProducto(id);
+            var categorias = _categoriasBL.ObtenerCategorias();
+
             return View(producto);
         }
         [HttpPost]
@@ -68,7 +100,13 @@ namespace GameStop.WebAdmi.Controllers
             return RedirectToAction("Index");
         }
 
+        private string GuardarImagen (HttpPostedFile imagen)
+        {
 
+            string path = Server.MapPath("~/Imagenes/" + imagen.FileName);
+            imagen.SaveAs(path);
+            return "/Imagenes/" + imagen.FileName;
+        }
 
 
 
